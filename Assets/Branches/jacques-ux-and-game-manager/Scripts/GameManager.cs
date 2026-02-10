@@ -4,7 +4,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public PlayerStart playerStart;
 
     void Awake()
     {
@@ -17,8 +16,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void StartGame()
+    void Start()
     {
-        playerStart.BeginIntro();
+
+        //Debug.Log("GM: Start");
+
+        //if (UIEventManager.Instance != null)
+        //    UIEventManager.Instance.StartEyeFatigue();
+        //else
+        //    Debug.LogWarning("UIEventManager not ready");
+
     }
+
 }
