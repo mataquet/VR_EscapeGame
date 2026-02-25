@@ -24,7 +24,6 @@ public class DoorController : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("open");
         if (isOpen) return;
 
         PlaySound();
