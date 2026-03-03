@@ -11,6 +11,11 @@ TagManager:
   - LightBlue
   - Green
   - Red
+  - Lampe
+  - Light1
+  - Neon
+  - Aiguillage
+  - Emissive
   layers:
   - Default
   - TransparentFX
@@ -18,9 +23,9 @@ TagManager:
   - Near
   - Water
   - UI
-  - Far
-  - 
-  - 
+  - RockfallBox
+  - FalseRocks
+  - Room2
   - 
   - 
   - 
