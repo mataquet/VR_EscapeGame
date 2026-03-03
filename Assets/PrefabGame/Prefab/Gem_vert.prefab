@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -198918536598544077}
   - component: {fileID: -2066183030700086513}
   m_Layer: 0
-  m_Name: Gem_2
+  m_Name: Gem_vert
   m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3168929277090416623}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.14393722, y: -0.34440634, z: 0.5537003, w: -0.7443671}
   m_LocalPosition: {x: 54.28068, y: 0.36569557, z: -62.875263}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.16, y: 0.16, z: 0.24}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.561, y: -333.903, z: -64.532}
 --- !u!33 &2924642946044866945
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
