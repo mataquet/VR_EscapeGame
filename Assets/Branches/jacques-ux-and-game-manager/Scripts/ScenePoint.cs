@@ -29,6 +29,6 @@ public class ScenePoint : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, 0.3f);
-        UnityEditor.Handles.Label(transform.position + Vector3.up * 0.5f, pointName);
+        //UnityEditor.Handles.Label(transform.position + Vector3.up * 0.5f, pointName);
     }
 }

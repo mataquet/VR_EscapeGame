@@ -14,7 +14,7 @@ public class CustomGizmo : MonoBehaviour
         if (icon != null)
         {
             // 'true' = icon est visible même quand l'objet n'est pas sélectionné
-            Gizmos.DrawIcon(transform.position, AssetDatabase.GetAssetPath(icon), true);
+            //Gizmos.DrawIcon(transform.position, AssetDatabase.GetAssetPath(icon), true);
         }
         else
         {
