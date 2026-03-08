@@ -1,13 +1,42 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ScenePoint : MonoBehaviour
 {
     public string pointName;
     public bool triggerOnce = true;
 
-    public Action onEnter;
     public bool triggered = false;
+
+    [Serializable]
+    public class ScenePointAction
+    {
+        public float delay;
+
+        public ActionType actionType;
+
+        public string dialogueID;
+
+        public string uiID;
+
+        public string interactableID;
+
+        public string bgmID; // nouvel ID pour la musique de fond
+    }
+
+    public enum ActionType
+    {
+        StartDialogue,
+        ShowUI,
+        FreezePlayer,
+        UnfreezePlayer,
+        TriggerInteractable,
+        PlayBGM // nouvel ActionType pour la musique
+    }
+
+    public List<ScenePointAction> actions = new List<ScenePointAction>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,8 +47,6 @@ public class ScenePoint : MonoBehaviour
         {
             triggered = true;
 
-            onEnter?.Invoke();
-
             EventParamScenePoint param = new EventParamScenePoint
             {
                 PointName = pointName,
@@ -28,7 +55,43 @@ public class ScenePoint : MonoBehaviour
 
             EventManager.TriggerEvent("ScenePointEntered", param);
 
-            Debug.Log($"ScenePoint {pointName} triggered!");
+            StartCoroutine(ExecuteActions());
+        }
+    }
+
+    IEnumerator ExecuteActions()
+    {
+        foreach (var action in actions)
+        {
+            yield return new WaitForSeconds(action.delay);
+
+            switch (action.actionType)
+            {
+                case ActionType.StartDialogue:
+                    EventManager.TriggerEvent("StartDialogue", new EventParamString(action.dialogueID));
+                    break;
+
+                case ActionType.ShowUI:
+                    EventManager.TriggerEvent("ShowUI", new EventParamString(action.uiID));
+                    break;
+
+                case ActionType.FreezePlayer:
+                    EventManager.TriggerEvent("FreezePlayerControls", null);
+                    break;
+
+                case ActionType.UnfreezePlayer:
+                    EventManager.TriggerEvent("UnfreezePlayerControls", null);
+                    break;
+
+                case ActionType.TriggerInteractable:
+                    EventManager.TriggerEvent("TriggerInteractable", new EventParamString(action.interactableID));
+                    break;
+
+                case ActionType.PlayBGM:
+                    EventManager.TriggerEvent("PlayBGM", new EventParamString(action.bgmID));
+                    Debug.Log($"[DEBUG][ScenePoint] Triggered BGM: {action.bgmID}");
+                    break;
+            }
         }
     }
 

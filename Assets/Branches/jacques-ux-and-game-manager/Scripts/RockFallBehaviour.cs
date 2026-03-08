@@ -7,38 +7,54 @@ public class RockFallBehaviour : MonoBehaviour
 
     [SerializeField] private bool rockFall;
 
-    public string triggerPointName; // nom du ScenePoint qui déclenche l'éboulement
+    public string interactableID; // ID qui déclenche l'éboulement
 
     void OnEnable()
     {
-        EventManager.StartListening("ScenePointEntered", OnScenePointEntered);
+        EventManager.StartListening("TriggerInteractable", OnTriggerInteractable);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening("ScenePointEntered", OnScenePointEntered);
+        EventManager.StopListening("TriggerInteractable", OnTriggerInteractable);
     }
 
-    void OnScenePointEntered(EventParam param)
+    void OnTriggerInteractable(EventParam param)
     {
-        EventParamScenePoint sceneParam = param as EventParamScenePoint;
+        EventParamString stringParam = param as EventParamString;
 
-        if (sceneParam == null)
-            return;
-
-        if (sceneParam.PointName == triggerPointName)
+        if (stringParam == null)
         {
+            Debug.Log("[DEBUG][RockFall] TriggerInteractable without param");
+            return;
+        }
+
+        Debug.Log($"[DEBUG][RockFall] Received interactable trigger : {stringParam.Value}");
+
+        if (stringParam.Value == interactableID)
+        {
+            Debug.Log($"[DEBUG][RockFall] Matching interactableID '{interactableID}'");
+
             TriggerRockFall();
         }
     }
 
     public void TriggerRockFall()
     {
+        if (rockFall)
+        {
+            Debug.Log("[DEBUG][RockFall] Rock fall already triggered");
+            return;
+        }
+
         rockFall = true;
 
-        StaticRocks.SetActive(false);
-        DynamicRocks.SetActive(true);
+        if (StaticRocks != null)
+            StaticRocks.SetActive(false);
 
-        Debug.Log("Rock fall triggered!");
+        if (DynamicRocks != null)
+            DynamicRocks.SetActive(true);
+
+        Debug.Log("[DEBUG][RockFall] Rock fall triggered!");
     }
 }
