@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.biosmanager.autodarktheme": {
+      "version": "https://github.com/biosmanager/AutoDarkTheme.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1fb07ec3b8b51109d21c30d76a76fcf8f94ba974"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,

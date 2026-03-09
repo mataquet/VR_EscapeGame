@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
                 eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
                 if (!eventManager)
                 {
-                    Debug.LogError("There needs to be one active EventManager script on a GameObject in your scene.");
+                    //Debug.LogError("There needs to be one active EventManager script on a GameObject in your scene.");
                 }
                 else
                 {
@@ -100,4 +100,14 @@ public class EventParamVector2 : EventParam
 	private Vector2 value;
 
 	public Vector2 Value { get => value; set => this.value = value; }
+}
+
+public class EventParamString : EventParam
+{
+    public string Value;
+
+    public EventParamString(string value)
+    {
+        Value = value;
+    }
 }
