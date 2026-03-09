@@ -101,3 +101,13 @@ public class EventParamVector2 : EventParam
 
 	public Vector2 Value { get => value; set => this.value = value; }
 }
+
+public class EventParamString : EventParam
+{
+    public string Value;
+
+    public EventParamString(string value)
+    {
+        Value = value;
+    }
+}
