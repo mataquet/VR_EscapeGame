@@ -1,9 +1,8 @@
 # Au Cœur de la Grotte - Escape Game VR
 
+![Banner](Docs/banner.png)
+
 Un Escape Game immersif en réalité virtuelle dans lequel vous explorez les mystères d'une grotte.
-
-[![Trailer](Docs/trailer_thumbnail.png)](https://github.com/mataquet/VR_EscapeGame/releases/download/v1.0/trailer.mp4)
-
 
 ## Installer le build Android
 1. Télécharger le build depuis [la dernière release](https://github.com/mataquet/VR_EscapeGame/releases/latest)
