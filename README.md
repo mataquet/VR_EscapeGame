@@ -4,6 +4,9 @@
 
 Un Escape Game immersif en réalité virtuelle dans lequel vous explorez les mystères d'une grotte.
 
+https://github.com/mataquet/VR_EscapeGame/releases/download/v1.0/trailer.mp4 
+
+
 ## Installer le build Android
 1. Télécharger le build depuis [la dernière release](https://github.com/mataquet/VR_EscapeGame/releases/latest)
 2. Copier le `.apk` sur votre appareil Android
